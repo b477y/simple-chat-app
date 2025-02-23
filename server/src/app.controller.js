@@ -27,10 +27,17 @@ const bootstrap = (app, express, Server) => {
     console.log(`Server is running on port: ${PORT}`);
   });
 
-  const io = new Server(httpServer);
+  const io = new Server(httpServer, {
+    cors: "*",
+  });
 
   io.on("connection", (socket) => {
-    console.log(socket);
+    console.log(socket.id);
+
+    socket.on("hi", (data) => {
+      console.log(data);
+      socket.emit("hi", "hi from server-side");
+    });
   });
 };
 
