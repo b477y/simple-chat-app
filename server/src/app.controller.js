@@ -1,4 +1,4 @@
-const bootstrap = (app, express) => {
+const bootstrap = (app, express, Server) => {
   const PORT = process.env.PORT;
 
   app.use(express.json());
@@ -23,8 +23,14 @@ const bootstrap = (app, express) => {
     }, 2000);
   });
 
-  app.listen(PORT, () => {
+  const httpServer = app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
+  });
+
+  const io = new Server(httpServer);
+
+  io.on("connection", (socket) => {
+    console.log(socket);
   });
 };
 

@@ -17,6 +17,7 @@
   "description": "This is a simple real-time chat application built using Express.js and Socket.IO. The app allows multiple users to connect and exchange messages in real-time.",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
   }
 }
