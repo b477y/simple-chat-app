@@ -1,0 +1,20 @@
+{
+  "name": "simple-chat-app-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  },
+  "keywords": [
+    "chat",
+    "real-time",
+    "socket.io",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "A simple real-time chat application frontend using vanilla JavaScript and Socket.IO."
+}
