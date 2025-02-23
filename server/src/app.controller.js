@@ -13,6 +13,16 @@ const bootstrap = (app, express) => {
     }, 5000);
   });
 
+  app.get("/server-send-events", (req, res) => {
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+
+    setInterval(() => {
+      res.write(`data: ${JSON.stringify({ message: "new-event" })}\n\n`);
+    }, 2000);
+  });
+
   app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
   });
